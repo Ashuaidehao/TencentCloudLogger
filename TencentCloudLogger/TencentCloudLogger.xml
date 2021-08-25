@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TencentCloudLogger</name>
+    </assembly>
+    <members>
+        <member name="M:TencentCloudLogger.Extensions.SHA1(System.String)">
+            <summary>
+            SHA1
+            </summary>
+            <param name="srcString">The string to be encrypted</param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Extensions.HMACSHA1(System.String,System.String)">
+            <summary>
+            HMAC_SHA1
+            </summary>
+            <param name="srcString">The string to be encrypted</param>
+            <param name="key">encrypt key</param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Extensions.AddTencentCloudLogger(Microsoft.Extensions.DependencyInjection.IServiceCollection,TencentCloudLogger.TCloudOption)">
+            <summary>
+            TencentCloud Logger依赖注入
+            </summary>
+            <param name="services"></param>
+            <param name="option"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.Signature.GetHttpRequestInfo(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="method">HTTP 请求使用的方法，小写字母，如 get、post等</param>
+            <param name="uri">HTTP 请求的资源名称，不包含 query string 部分，如 /logset</param>
+            <returns>HttpRequestInfo</returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.Signature.GetStringToSign(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="q_sign_algorithm">签名算法，目前仅支持 sha1</param>
+            <param name="q_sign_time">签名有效起止时间，Unix时间戳，以秒为单位，;分隔</param>
+            <param name="httpRequestInfo">HttpRequestInfo</param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.Signature.GetSignKey(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="q_key_time">Unix时间戳，以秒为单位，;分隔</param>
+            <param name="secretKey">腾讯云API的SecretKey</param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.Signature.GetSignature(System.String,System.String)">
+            <summary>
+            获取签名
+            </summary>
+            <param name="stringToSign">StringToSign</param>
+            <param name="signKey">SignKey</param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.Signature.GetSignature(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取签名字符串
+            </summary>
+            <param name="method">HTTP 请求使用的方法，小写字母，如 get、post等</param>
+            <param name="uri">HTTP 请求的资源名称，不包含 query string 部分，如 /logset</param>
+            <param name="q_sign_time">签名有效起止时间，Unix时间戳，以秒为单位，;分隔</param>
+            <param name="secretKey">腾讯云API的SecretKey</param>
+            <returns>Signature签名字符串</returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.TCloudClient.GetAuthorizationString">
+            <summary>
+            获取请求Authorization头部的授权字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.TCloudClient.UploadLog(TencentCloud.Cls.LogGroupList)">
+            <summary>
+            上传日志
+            </summary>
+            <param name="logGroupList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.Http.TCloudClient.UploadLog(TencentCloud.Cls.LogGroupList,System.String)">
+            <summary>
+            上传日志
+            </summary>
+            <param name="logGroupList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TencentCloudLogger.TCloudLogger.CreateLogger(TencentCloudLogger.TCloudOption,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="option"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TencentCloudLogger.TCloudOption">
+            <summary>
+            日志组件配置
+            </summary>
+        </member>
+        <member name="P:TencentCloudLogger.TCloudOption.Level">
+            <summary>
+            日志最低级别
+            </summary>
+        </member>
+        <member name="P:TencentCloudLogger.TCloudOption.ApiHost">
+            <summary>
+            日志请求服务地址,例如：http://cls.tencentcloudapi.com
+            </summary>
+        </member>
+        <member name="P:TencentCloudLogger.TCloudOption.SecretId">
+            <summary>
+            SecretId
+            </summary>
+        </member>
+        <member name="P:TencentCloudLogger.TCloudOption.SecretKey">
+            <summary>
+            SecretKey
+            </summary>
+        </member>
+        <member name="P:TencentCloudLogger.TCloudOption.Topic">
+            <summary>
+            日志主题id
+            </summary>
+        </member>
+        <member name="T:TencentCloud.Cls.ClsReflection">
+            <summary>Holder for reflection information generated from protos/cls.proto</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.ClsReflection.Descriptor">
+            <summary>File descriptor for protos/cls.proto</summary>
+        </member>
+        <member name="F:TencentCloud.Cls.Log.TimeFieldNumber">
+            <summary>Field number for the "time" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.Log.Time">
+            <summary>
+            时间戳，UNIX时间格式
+            </summary>
+        </member>
+        <member name="F:TencentCloud.Cls.Log.ContentsFieldNumber">
+            <summary>Field number for the "contents" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.Log.Contents">
+            <summary>
+            一条日志里的多个kv组合
+            </summary>
+        </member>
+        <member name="T:TencentCloud.Cls.Log.Types">
+            <summary>Container for nested types declared in the Log message type.</summary>
+        </member>
+        <member name="F:TencentCloud.Cls.Log.Types.Content.KeyFieldNumber">
+            <summary>Field number for the "key" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.Log.Types.Content.Key">
+            <summary>
+            每组字段的 key
+            </summary>
+        </member>
+        <member name="F:TencentCloud.Cls.Log.Types.Content.ValueFieldNumber">
+            <summary>Field number for the "value" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.Log.Types.Content.Value">
+            <summary>
+            每组字段的 value
+            </summary>
+        </member>
+        <member name="F:TencentCloud.Cls.LogGroup.LogsFieldNumber">
+            <summary>Field number for the "logs" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.LogGroup.Logs">
+            <summary>
+            多条日志合成的日志数组
+            </summary>
+        </member>
+        <member name="F:TencentCloud.Cls.LogGroup.ContextFlowFieldNumber">
+            <summary>Field number for the "contextFlow" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.LogGroup.ContextFlow">
+            <summary>
+            目前暂无效用
+            </summary>
+        </member>
+        <member name="F:TencentCloud.Cls.LogGroup.FilenameFieldNumber">
+            <summary>Field number for the "filename" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.LogGroup.Filename">
+            <summary>
+            日志文件名
+            </summary>
+        </member>
+        <member name="F:TencentCloud.Cls.LogGroup.SourceFieldNumber">
+            <summary>Field number for the "source" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.LogGroup.Source">
+            <summary>
+            日志来源，一般使用机器IP
+            </summary>
+        </member>
+        <member name="F:TencentCloud.Cls.LogGroupList.LogGroupList_FieldNumber">
+            <summary>Field number for the "logGroupList" field.</summary>
+        </member>
+        <member name="P:TencentCloud.Cls.LogGroupList.LogGroupList_">
+            <summary>
+            日志组列表
+            </summary>
+        </member>
+    </members>
+</doc>

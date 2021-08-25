@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageVersion>0.0.5</PackageVersion>
+    <PackageId>TencentCloudLogger</PackageId>
+    <Title>TencentCloud Logger</Title>
+    <Authors>SL</Authors>
+    <Description>TencentCloud Logger SDK for .NET Core.</Description>
+    <PackageTags>TencentCloud;logger;</PackageTags>
+    <PackageProjectUrl>https://github.com/Ashuaidehao/TencentCloudLogger</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <!--<PackageIcon>icon.png</PackageIcon>-->
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Ashuaidehao/TencentCloudLogger.git</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.17.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="protoc --csharp_out=./protos ./protos/*.proto " />
+  </Target>
+</Project>
