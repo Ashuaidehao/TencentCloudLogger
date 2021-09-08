@@ -21,7 +21,7 @@
     <PackageReference Include="Google.Protobuf" Version="3.17.3" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
   </ItemGroup>
-   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
+   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(Configuration)' == 'Proto' ">
     <Exec Command="protoc --csharp_out=./protos ./protos/*.proto " />
   </Target> 
 </Project>
