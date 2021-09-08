@@ -23,3 +23,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: |
+        dotnet pack -c Release -o out
+        dotnet nuget add source  https://nuget.pkg.github.com/ashuaidehao/index.json -n "GitHub" -u ashuaidehao -p ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
+        dotnet nuget push out/*.nupkg -s "GitHub"
+
