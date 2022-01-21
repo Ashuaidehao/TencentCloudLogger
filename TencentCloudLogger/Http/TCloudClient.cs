@@ -32,6 +32,10 @@ namespace TencentCloudLogger.Http
             _topic = topic;
         }
 
+        public TCloudClient(TCloudOption option) : this(option.ApiHost, option.SecretId, option.SecretKey, option.Topic)
+        {
+        }
+
         /// <summary>
         /// 获取请求Authorization头部的授权字符串
         /// </summary>

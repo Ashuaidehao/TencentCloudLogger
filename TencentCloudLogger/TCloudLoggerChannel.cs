@@ -18,7 +18,7 @@ namespace TencentCloudLogger
         private readonly TCloudClient _client;
         private readonly CancellationTokenSource _cancellationTokenSource;
 
-        public TCloudLoggerChannel(TCloudOption option):this(new TCloudClient(option.ApiHost, option.SecretId, option.SecretKey, option.Topic))
+        public TCloudLoggerChannel(TCloudOption option) : this(new TCloudClient(option))
         {
         }
         public TCloudLoggerChannel(TCloudClient client)
